@@ -36,8 +36,7 @@ class Tests:
                 value=input("Enter value to be deleted: ")),
             lambda:self.ll.reversal(),
             lambda:self.ll.search(value=input("Enter value to be searched")),
-            lambda:self.ll.traverse(),
-            None
+            lambda:self.ll.traverse()
         ]
 
     def take_input(self):
