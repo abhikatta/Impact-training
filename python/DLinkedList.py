@@ -6,8 +6,8 @@ class Node:
 
 # TODO:
 # 1.x Insert after value
-# 2. insert at index
-# 3. Delete at index
+# 2.x insert at index
+# 3.x Delete at index
 # 4.x Test file
 
 
@@ -56,11 +56,30 @@ class DLL:
                 break
             current = current.next
 
-    def insert_at_index(self, index: int, value: int) -> None:
+    def insert_at(self, index: int, value: int) -> None:
         '''
         Insert a Node element at the given index of the Doubly Linked List.
         '''
-        pass
+        current = self.head
+        count = 0
+        node = Node(value)
+        prev = None
+        if index == 0:
+            self.insert_at_beginning(value=value)
+            return
+        while current is not None:
+            if count != index:
+                count += 1
+                prev = current
+                current = current.next
+            elif count == index:
+                node.next = current
+                node.prev = prev
+                prev.next = node
+                current.prev = node
+                return
+
+        print('Index is more than list size')
 
     def delete_at_end(self) -> None:
         current = self.head
@@ -99,7 +118,21 @@ class DLL:
         '''
         Deletes a node element from the Doubly Linked list at given index.
         '''
-        pass
+        if index == 0:
+            self.delete_at_beginning()
+            return
+        current = self.head
+        count = 0
+        prev = None
+        while current is not None:
+            if count != index:
+                count += 1
+                prev = current
+                current = current.next
+            elif count == index:
+                prev.next = current.next
+                current.next.prev = prev
+                return
 
     def traverse(self) -> None:
         '''
@@ -111,3 +144,17 @@ class DLL:
             print(current.data)
             current.prev = prev
             current = current.next
+        return
+
+    def search(self, value: int) -> bool:
+        current = self.head
+        count = 0
+        while current is not None:
+            if current.data != value:
+                count += 1
+                current = current.next
+            elif current.data == value:
+                print(count)
+                return True
+        print(False)
+        return

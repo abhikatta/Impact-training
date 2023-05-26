@@ -35,7 +35,7 @@ class Tests:
             lambda:self.ll.delete_value(
                 value=input("Enter value to be deleted: ")),
             lambda:self.ll.reversal(),
-            lambda:self.ll.search(value=input("Enter value to be searched")),
+            lambda:self.ll.search(value=input("Enter value to be searched: ")),
             lambda:self.ll.traverse()
         ]
 

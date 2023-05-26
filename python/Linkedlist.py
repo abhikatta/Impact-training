@@ -45,15 +45,15 @@ class LinkedList:
                 count += 1
                 prev = current
                 current = current.next
-
-            elif count == index:
+            elif count == index and current.next is not None:
                 prev.next = new_node
                 new_node.next = current
                 return
+            elif count == index and current.next is None:
+                self.insert_at_end(data=value)
 
     def insert_value_after(self, value_to_be_inserted: int, value: int) -> int:
         current = self.head
-
         node = Node(value_to_be_inserted)
         while current is not None:
             if current.data != value:
@@ -63,7 +63,6 @@ class LinkedList:
                 current.next = node
                 node.next = temp
                 break
-
             else:
                 print(
                     "Check the value of the linked list, looks like it's not present in the Linked List")
@@ -148,7 +147,6 @@ class LinkedList:
                 count += 1
                 current = current.next
         print(False)
-        return False
 
     def reversal(self) -> None:
         '''
@@ -166,5 +164,6 @@ class LinkedList:
             current = last
 
         # since while printing we will print starting from the self.head(first element), last element will be the first element
+
         self.head = prev
         self.traverse()
