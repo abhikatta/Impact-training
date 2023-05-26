@@ -1,5 +1,4 @@
 from LLtest import Tests
-from DLinkedList import DLL
 
 
 class DllTest(Tests):

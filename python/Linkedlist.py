@@ -74,7 +74,7 @@ class LinkedList:
         print("Linked List:")
         current = self.head
         while current is not None:
-            print(current.data)
+            print(current.data, end=', ')
             current = current.next
 
     def delete_last(self) -> None:

@@ -3,6 +3,6 @@
 ## So far:
 
 1. [x] LinkedList all operations and reversal.
-2. [ ] Doubly Linked List.
+2. [x] Doubly Linked List.
 3. [ ] Circular LinkedList.
 4. [ ] Binary Search Tree.

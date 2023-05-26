@@ -141,7 +141,7 @@ class DLL:
         current = self.head
         prev = None
         while current is not None:
-            print(current.data)
+            print(current.data, end=', ')
             current.prev = prev
             current = current.next
         return
