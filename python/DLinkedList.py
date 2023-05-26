@@ -5,9 +5,10 @@ class Node:
         self.next = None
 
 # TODO:
-# 1. Insert after value
+# 1.x Insert after value
 # 2. insert at index
 # 3. Delete at index
+# 4.x Test file
 
 
 class DLL:
@@ -41,14 +42,25 @@ class DLL:
         self.head = node
         node.next = current
 
-    # def insert_after_value(self,new_value:int,value:int)->None:
-    #     '''
-    #     Insert given value(new_value) after given data(value).
-    #     '''
-    #     current=self.head
-    #     count=0
-    #     while current is not None:
-    #         if
+    def insert_after_value(self, new_value: int, value: int) -> None:
+        '''
+        Insert given value(new_value) after given data(value).
+        '''
+        current = self.head
+        node = Node(new_value)
+        while current is not None:
+            if current.data is value:
+                node.next = current.next
+                current.next = node
+                node.prev = current
+                break
+            current = current.next
+
+    def insert_at_index(self, index: int, value: int) -> None:
+        '''
+        Insert a Node element at the given index of the Doubly Linked List.
+        '''
+        pass
 
     def delete_at_end(self) -> None:
         current = self.head
@@ -83,6 +95,12 @@ class DLL:
             prev = current
             current = current.next
 
+    def delete_at_index(self, index: int) -> None:
+        '''
+        Deletes a node element from the Doubly Linked list at given index.
+        '''
+        pass
+
     def traverse(self) -> None:
         '''
         Print out all the nodes in the Doubly Linked List.
@@ -93,23 +111,3 @@ class DLL:
             print(current.data)
             current.prev = prev
             current = current.next
-
-
-dll = DLL()
-dll.insert_at_end(100)
-dll.insert_at_end(200)
-dll.insert_at_end(300)
-dll.insert_at_end(400)
-dll.insert_at_end(500)
-dll.traverse()
-# dll.insert_at_beginning(400)
-# dll.traverse()
-print()
-dll.delete_at_end()
-dll.traverse()
-print()
-dll.delete_at_beginning()
-dll.traverse()
-print()
-dll.delete_value(200)
-dll.traverse()
