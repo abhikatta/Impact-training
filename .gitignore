@@ -3,5 +3,5 @@ __pycache__
 asd
 .ipynb
 asd.py
-.class
-.java
+*.class
+*.java
