@@ -3,22 +3,25 @@ sys.path.append('./')
 sys.path.append('../')
 
 
-def BSTt():
-    from BST import BST, Node
-    return BST(), Node
+class binary_search_tree_test:
+    def __init__(self) -> None:
+        '''Imports necessary modules required for current unit tests.'''
+        from BST import BST, Node
+        self.bst = BST()
+        # self.root-Node()
+        self.opertions = {
+            1: 'Create Root Node',
+            2: 'Insert Leaf Node',
+            3: 'Height of Tree',
+            4: 'Traverse Tree',
+            5: 'Search Node',
+            6: 'Delete Node',
+            7: 'Diameter of Tree'
+        }
+        self.commands = [
+            lambda:self.bst.insert(value=input(
+                "Enter root node value to be inserted:"), root=None),
+            lambda:self.bst.insert(value=input(
+                "Enter node value to be inserted"), root=r)
 
-
-Binary_search_Tree, root_node = BSTt()
-
-Binary_search_Tree.root = root_node(data=10)
-Binary_search_Tree.insert(value=1, root=Binary_search_Tree.root)
-Binary_search_Tree.insert(value=12, root=Binary_search_Tree.root)
-Binary_search_Tree.insert(value=123, root=Binary_search_Tree.root)
-Binary_search_Tree.insert(value=1234, root=Binary_search_Tree.root)
-Binary_search_Tree.insert(value=12345, root=Binary_search_Tree.root)
-Binary_search_Tree.insert(value=123456, root=Binary_search_Tree.root)
-Binary_search_Tree.traverse(root=Binary_search_Tree.root)
-print()
-el = Binary_search_Tree.search(
-    value=1234, root=Binary_search_Tree.root, return_value=True)
-print((el.next).data)
+        ]
