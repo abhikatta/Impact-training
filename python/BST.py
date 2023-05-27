@@ -1,15 +1,16 @@
 from DLinkedList import Node as N
 
 # TODO:
-# 0. Insertion x
+# 0.x Insertion
 # 1. Deletion
-# 2. Search
-# 3. Height
+# 2.x Search
+# 3.x Height
 # 4. Diameter
 
 
 class Node(N):
     def __init__(self, data: int) -> None:
+
         super().__init__(data)
 
 
@@ -38,7 +39,7 @@ class BST:
         return root
 
     def deletion(self, root: Node, value: int) -> None:
-        '''Deletes the given value from the Binary Search Tree.'''
+        '''Research going on. To be implemented. Deletes the given value from the Binary Search Tree.'''
         pass
 
     def traverse(self, root: Node) -> None:
@@ -64,7 +65,7 @@ class BST:
                 root = root.next
             elif value == root.data:
                 if return_value:
-                    return root.data
+                    return root
                 else:
                     return True
         return False
@@ -73,28 +74,16 @@ class BST:
         '''Calculates and returns the height of the Binary Search Tree from the root.
             - Height is basically the length of the longest path from the root node to leaf node.
         '''
+        if root is None:
+            return 0
+        elif root:
+            H = 1+max(self.height(root=root.prev), self.height(root=root.next))
+            return H
+
+    def diameter(self, root: Node) -> int:
+        '''
+        - To Be implmented.
+        - Calculates and returns the height of the Binary Search Tree from the root. 
+        - Diameter is something I still don't know, still researching.
+        '''
         pass
-
-    def diameter():
-        pass
-
-
-bstree = BST()
-
-# Tree should be made as:
-# 1. A root should be created, which can be done in 2 ways:
-# -  a. bstree.root = Node(14) (the better way IMO)
-# -  b. bstree.root = bstree.insert(value=14, root=None)
-# 2. Pass the nodes as bstree.insert(value=some_value, root=bstree.root)
-
-# bstree.my_function()
-bstree.root = Node(14)
-bstree.insert(value=-15, root=bstree.root)
-bstree.insert(value=-13, root=bstree.root)
-bstree.insert(value=12, root=bstree.root)
-bstree.insert(value=11, root=bstree.root)
-bstree.insert(value=-10, root=bstree.root)
-bstree.traverse(root=bstree.root)
-print()
-# bstree.height()
-print(bstree.search(root=bstree.root, value=-13, return_value=True))
