@@ -14,27 +14,26 @@
    - d. Search
    - e. Reverse
 
-2. Doubly Linked list:
+[ ] 2. Doubly Linked list:
 
-   - a. Delete
+      - a. Delete
+        - (i) first
+        - (ii) last
+        - (iii) value
+        - (iiii) index
 
-     - (i) first
-     - (ii) last
-     - (iii) value
-     - (iiii) index
+      - b. Insert
 
-   - b. Insert
+        - (i) first
+        - (ii) last
+        - (iii) value
+        - (iiii) index
 
-     - (i) first
-     - (ii) last
-     - (iii) value
-     - (iiii) index
+86428 - c. Traverse
 
-   - c. Traverse
+      - d. Search
 
-   - d. Search
-
-   - e. Reverse
+      - e. Reverse
 
 3. Circular Linked list:
    - a. Delete
@@ -50,3 +49,11 @@
    - c. Traverse
    - d. Search
    - e. Reverse
+4. BST:
+
+   - a. Insert
+   - b. Inorder Traversal
+   - c. Preorder Traversal
+   - d. Postorder Traversal
+   - e. Height
+   - f. Levelorder Traversal
