@@ -40,10 +40,10 @@ class Tests:
         ]
 
     def take_input(self):
-        print(self.operations, end='\n')
 
         while True:
             try:
+                print(self.operations, end='\n')
                 i = int(input("\nEnter your operation: "))
                 if i in self.operations.keys():
                     self.commands[i-1]()
@@ -51,7 +51,6 @@ class Tests:
                     break
                 else:
                     print("Select an option from below:")
-                    print(self.operations)
             except ValueError:
                 print("Select an option from below:")
                 print(self.operations)

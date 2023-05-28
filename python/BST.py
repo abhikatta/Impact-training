@@ -49,7 +49,7 @@ class BST:
             print(root.data, end=', ')
             self.traverse(root=root.next)
 
-    def search(self, value: int, root: Node, return_value=False) -> int:
+    def search(self, value: int, root: Node, return_node=False) -> int:
         '''Traverses the Binary Search tree and returns True if the value is found else returns None.
             - If return_value is given as True, the value, if found the value will be returned.
             - return_value = False by default.
@@ -64,11 +64,11 @@ class BST:
                 # return self.search(root=root.next, value=value) with these, the default parameter cannot be passed
                 root = root.next
             elif value == root.data:
-                if return_value:
+                if return_node:
                     return root
                 else:
                     return True
-        return False
+            return False
 
     def height(self, root: Node) -> int:
         '''Calculates and returns the height of the Binary Search Tree from the root.
