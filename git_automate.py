@@ -1,4 +1,6 @@
 import os
+
+
 while True:
     try:
         commit_message = str(input("Commit message: "))
@@ -6,5 +8,7 @@ while True:
         os.system('git commit -m'+commit_message)
         os.system('git push')
         break
-    except ConnectionRefusedError:
+    except KeyboardInterrupt:
+        break
+    except:
         print("Network not found. Retrying.")
