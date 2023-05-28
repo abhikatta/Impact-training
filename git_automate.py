@@ -6,5 +6,5 @@ while True:
         os.system('git commit -m'+commit_message)
         os.system('git push')
         break
-    except:
+    except ConnectionRefusedError:
         print("Network not found. Retrying.")
