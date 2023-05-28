@@ -1,15 +1,18 @@
-from Linkedlist import Node, LinkedList
-
-
-class Node(Node):
+class Node:
     def __init__(self, data) -> None:
         self.data = data
         self.next = self
 
+# TODO:
+# 1. Delete at index
+# 2. Search
+# 3. Insert at index
+# 4. Reverse
 
-class CircularLL(LinkedList):
+
+class CircularLL():
     def __init__(self) -> None:
-        super().__init__()
+        self.head = None
 
     def insert_at_end(self, data: int) -> None:
         node = Node(data=data)
@@ -17,10 +20,18 @@ class CircularLL(LinkedList):
         if self.head is None:
             self.head = node
         else:
-            while current is not self.head:
+            while current.next is not self.head:
                 current = current.next
             current.next = node
             node.next = self.head
+
+    def insert_at_beginning(self, data: int) -> None:
+        node = Node(data=data)
+        current = self.head
+        if self.head is None:
+            self.head = node
+        self.head = node
+        node.next = current
 
     def traverse(self) -> None:
         current = self.head
@@ -31,9 +42,14 @@ class CircularLL(LinkedList):
                 break
         return
 
+    # def insert_at(self, value: int, index: int) -> None:
+    #     return super().insert_at(value, index)
+
 
 cll = CircularLL()
 cll.insert_at_end(10)
 cll.insert_at_end(12)
 cll.insert_at_end(13)
+cll.insert_at_end(14)
+cll.insert_at_end(5)
 cll.traverse()
