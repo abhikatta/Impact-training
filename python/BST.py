@@ -40,7 +40,31 @@ class BST:
 
     def deletion(self, root: Node, value: int) -> None:
         '''Research going on. To be implemented. Deletes the given value from the Binary Search Tree.'''
-        pass
+        # case1:
+        current = self.root
+        while root:
+            if value > root.data:
+                current = root
+                root = root.next
+            elif value < root.data:
+                current = root
+                root = root.prev
+            elif value == root.data and not root.next and not root.prev:
+                root = None
+                # root.data = None
+                break
+            elif value == root.data and not root.next and root.prev:
+                current.prev = root.prev
+                break
+            elif value == root.data and not root.prev and root.next:
+                current.next = root.next
+                break
+            return
+        # 3 cases:
+        # 1. no child nodes / value to be deleted is a leaf node
+        # 2. one child node left or right
+        # 3. 2 child nodes: replace with inorder successor
+        # 4. left max has a child
 
     def traverse(self, root: Node) -> None:
         '''Traverses and prints the Binary Search Tree.'''
@@ -48,6 +72,11 @@ class BST:
             self.traverse(root=root.prev)
             print(root.data, end=', ')
             self.traverse(root=root.next)
+
+    def inorder_predecessor(self, root: Node) -> Node:
+        if root.prev is not None:
+            root = self.inorder_predecessor(root=root.prev)
+        return root
 
     def search(self, value: int, root: Node, return_node=False) -> int:
         '''Traverses the Binary Search tree and returns True if the value is found else returns None.
@@ -87,3 +116,17 @@ class BST:
         - Diameter is something I still don't know, still researching.
         '''
         pass
+
+
+asd = BST()
+asd.root = Node(10)
+asd.insert(value=12, root=asd.root)
+asd.insert(value=13, root=asd.root)
+asd.insert(value=9, root=asd.root)
+asd.insert(value=8, root=asd.root)
+asd.insert(value=14, root=asd.root)
+asd.traverse(root=asd.root)
+print()
+# print(asd.inorder_predecessor(root=asd.root).data)
+asd.deletion(root=asd.root, value=14)
+asd.traverse(root=asd.root)
