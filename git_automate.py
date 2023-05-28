@@ -6,4 +6,4 @@ while True:
     os.system('git commit -m'+commit_message)
     os.system('git push')
     print("\nTrying again in 10 seconds.\n")
-    time.sleep(secs=10)
+    time.sleep(10)
