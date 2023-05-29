@@ -1,3 +1,5 @@
+# TODO:
+# 1. Fix this.
 import os
 import time
 commit_message = str(input("Commit message: "))
@@ -9,6 +11,7 @@ while not a:
         os.system('git commit -m'+commit_message)
         os.system('git push')
         a = True
+
     else:
         print("\nTrying again in 10 seconds.\n")
         time.sleep(10)
