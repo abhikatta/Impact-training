@@ -52,15 +52,60 @@ class CircularLL():
                 break
         return
 
-    # def insert_at(self, value: int, index: int) -> None:
-    #     return super().insert_at(value, index)
+    def insert_at(self, value: int, index: int):
+        current = self.head
+        count = 0
+        prev = None
+        node = Node(value)
+        if current is None:
+            current = node
+            return
+        while current is not None:
 
+            if count == index:
+                prev.next = node
+                node.next = current
+                return
+            elif count != index:
+                count += 1
+                prev = current
+                current = current.next
+            elif count > index:
+                print("Index out of range!")
+                return False
+        self.head = current
+        return
 
-cll = CircularLL()
-cll.insert_at_end(10)
-cll.insert_at_end(12)
-cll.insert_at_end(13)
-cll.insert_at_end(14)
-cll.insert_at_end(5)
-cll.insert_at_beginning(16)
-cll.traverse()
+    def delete_at_end(self):
+        current = self.head
+        prev = None
+        while current is not None:
+            if current.next == self.head:
+                prev.next = self.head
+                return
+            elif current.next != self.head:
+                prev = current
+                current = current.next
+
+    def delete_at_beginning(self):
+        current = self.head
+        while current is not None:
+            if current.next == self.head:
+                current.next = self.head.next
+                self.head = current.next
+                return
+            current = current.next
+
+    def delete_at(self, index: int):
+        current = self.head
+        count = 0
+        prev = None
+        while current is not None:
+            if count == index:
+                prev.next = current.next
+                return
+            else:
+                count += 1
+                prev = current
+                current = current.next
+        return
