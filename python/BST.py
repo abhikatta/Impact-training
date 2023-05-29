@@ -41,25 +41,19 @@ class BST:
     def deletion(self, root: Node, value: int) -> None:
         '''Research going on. To be implemented. Deletes the given value from the Binary Search Tree.'''
         # case1:
+        pass
         current = self.root
-        while root:
-            if value > root.data:
-                current = root
-                root = root.next
-            elif value < root.data:
-                current = root
-                root = root.prev
-            elif value == root.data and not root.next and not root.prev:
-                root = None
-                # root.data = None
-                break
-            elif value == root.data and not root.next and root.prev:
-                current.prev = root.prev
-                break
-            elif value == root.data and not root.prev and root.next:
-                current.next = root.next
-                break
-            return
+        last = None
+        while current is not None:
+            if value < current.data:
+                last = current
+                current = current.prev
+            elif value > current.data:
+                last = current
+                current = current.next 
+            elif value==current.data:
+                # last.
+        
         # 3 cases:
         # 1. no child nodes / value to be deleted is a leaf node
         # 2. one child node left or right
