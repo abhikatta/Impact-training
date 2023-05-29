@@ -9,8 +9,10 @@ while not a:
 
         os.system('git add .')
         os.system('git commit -m'+commit_message)
-        os.system('git push')
-        a = True
+        if not os.system('git push'):
+            continue
+        elif os.system('git push'):
+            break
 
     else:
         print("\nTrying again in 10 seconds.\n")
