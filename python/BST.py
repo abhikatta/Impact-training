@@ -2,11 +2,11 @@ from DLinkedList import Node as N
 
 # TODO:
 # 0.x Insertion
-# 1. Deletion
+# 1.x Deletion
 # 2.x Search
 # 3.x Height
 # 4. Diameter
-# 5. find_parent
+# 5.x find_parent
 
 
 class Node(N):
