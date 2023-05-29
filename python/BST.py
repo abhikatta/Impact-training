@@ -6,11 +6,11 @@ from DLinkedList import Node as N
 # 2.x Search
 # 3.x Height
 # 4. Diameter
+# 5. find_parent
 
 
 class Node(N):
     def __init__(self, data: int) -> None:
-
         super().__init__(data)
 
 
@@ -40,25 +40,42 @@ class BST:
 
     def deletion(self, root: Node, value: int) -> None:
         '''Research going on. To be implemented. Deletes the given value from the Binary Search Tree.'''
-        # case1:
-        pass
-        current = self.root
-        last = None
-        while current is not None:
-            if value < current.data:
-                last = current
-                current = current.prev
-            elif value > current.data:
-                last = current
-                current = current.next 
-            elif value==current.data:
-                # last.
-        
         # 3 cases:
         # 1. no child nodes / value to be deleted is a leaf node
         # 2. one child node left or right
         # 3. 2 child nodes: replace with inorder successor
+        if root is None:
+            return None
+
+        elif value < root.data:
+            root.prev = self.deletion(root=root.prev, value=value)
+        elif value > root.data:
+            root.next = self.deletion(root=root.next, value=value)
+
+        else:
+
+            # case 1
+            if root.next is None and root.prev is None:
+                root = None
+
+            # case 2
+            elif root.prev is None:
+                root = root.next
+            elif root.next is None:
+                root = root.prev
+
+            # case 3
+            else:
+                # either take max value in left sub tree or min value in right sub tree and replace
+                # that value with current node's value(not node, but VALUE).
+                # here  max value  of the 2 successors is being taken.
+                # again that successor may also have successsor(s), so the deletion function is being applied again on the successor.
+                successor = self.inorder_successor(root=root.prev)
+                root.data = successor.data
+                self.deletion(root=root.prev, value=root.prev)
+
         # 4. left max has a child
+        return root
 
     def traverse(self, root: Node) -> None:
         '''Traverses and prints the Binary Search Tree.'''
@@ -68,9 +85,33 @@ class BST:
             self.traverse(root=root.next)
 
     def inorder_predecessor(self, root: Node) -> Node:
-        if root.prev is not None:
-            root = self.inorder_predecessor(root=root.prev)
+        while root.prev:
+            root = root.prev
+        print(root.data)
         return root
+
+    def inorder_successor(self, root: Node) -> Node:
+        while root.next:
+            root = root.next
+        print(root.data)
+        return root
+
+    def find_parent(self, root: Node, leaf_value: int) -> Node:
+        '''Finds the parent of the leaf. Returns None if not found.'''
+        # since root node does not have a parent
+        # track current node, parent node, if current.data=value return parent node
+        parent = None
+        current = root
+        while current is not None:
+            if current.data == leaf_value:
+                print(parent.data)
+                return parent
+            parent = current
+            if current.data < leaf_value:
+                current = current.next
+            else:
+                current = current.prev
+        return None
 
     def search(self, value: int, root: Node, return_node=False) -> int:
         '''Traverses the Binary Search tree and returns True if the value is found else returns None.
@@ -78,7 +119,7 @@ class BST:
             - return_value = False by default.
         '''
         count = 0
-        while root is not None:
+        while root:
             count += 1
             if value < root.data:
                 # return self.search(root=root.prev, value=value,) with these, the default parameter cannot be passed
@@ -97,12 +138,13 @@ class BST:
         '''Calculates and returns the height of the Binary Search Tree from the root.
             - Height is basically the length of the longest path from the root node to leaf node.
         '''
-        if root is None:
+        if not root:
             return 0
         elif root:
             H = 1+max(self.height(root=root.prev), self.height(root=root.next))
             return H
 
+# TODO:
     def diameter(self, root: Node) -> int:
         '''
         - To Be implmented.
@@ -121,6 +163,6 @@ asd.insert(value=8, root=asd.root)
 asd.insert(value=14, root=asd.root)
 asd.traverse(root=asd.root)
 print()
-# print(asd.inorder_predecessor(root=asd.root).data)
-asd.deletion(root=asd.root, value=14)
+asd.deletion(value=9, root=asd.root)
+# asd.findparent(root=asd.root, leaf_value=9)
 asd.traverse(root=asd.root)
