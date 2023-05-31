@@ -2,7 +2,10 @@ class Node:
     def __init__(self, data) -> None:
         self.data = data
         self.next = None
-
+# TODO:
+# 1. Finding Middle element in O(logn) using 2 pointers
+# 2. Loop detection (last to any except head)
+    # a. if s=f at some point, there is a loop
 
 class LinkedList:
     def __init__(self) -> None:
