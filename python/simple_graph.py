@@ -24,13 +24,24 @@ class Graph:
         for i in range(1, len(self.matrix)):
             print(str(i)+':')
             print(self.matrix[i], end='\n')
-
+    
+    def DFS(self,start,visited):
+        visited[start]=True
+        print(str(start)+' ->',end=' ')
+        for i in range(self.size):
+            if self.matrix[start][i]==1 and not visited[i]:
+                self.DFS(start=i,visited=visited)
+        
+        
+        
+        
+        
 # LL:
 # 1. value, list of none nodes *number of chilren
 
 
-# size = int(input("Size: "))
-g = Graph(size=6)
+size = 7
+g = Graph(size=size)
 # for i in range(1, size ):
 #     node1, node2 = map(int, input().split())
 #     g.add_edge(node1=node1, node2=node2)
@@ -43,5 +54,10 @@ g.add_edge(1, 4)
 g.add_edge(3, 5)
 g.add_edge(4, 2)
 g.add_edge(5, 1)
+g.add_edge(5, 2)
+g.add_edge(6, 3)
+g.add_edge(6, 4)
+g.add_edge(6, 3)
 g.traverse()
-#
+visited=[False]*size
+g.DFS(start=3,visited=visited)

@@ -1,12 +1,13 @@
 from DLinkedList import Node as N
 
 # TODO:
-# 0.x Insertion
-# 1.x Deletion
-# 2.x Search
-# 3.x Height
-# 4. Diameter
-# 5.x find_parent
+# 0. x Insertion
+# 1. x Deletion
+# 2. x Search
+# 3. x Height
+# 4.   Diameter
+# 5. x find_parent
+# 6.   DFS
 
 
 class Node(N):
@@ -95,7 +96,7 @@ class BST:
             root = root.next
         print(root.data)
         return root
-
+    
     def find_parent(self, root: Node, leaf_value: int) -> Node:
         '''Finds the parent of the leaf. Returns None if not found.'''
         # since root node does not have a parent

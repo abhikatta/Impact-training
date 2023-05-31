@@ -3,13 +3,13 @@ class Node:
         self.data = data
         self.next = None
 # TODO:
-# 1. Finding Middle element in O(logn) using 2 pointers
-# 2. Loop detection (last to any except head)
-    # a. if s=f at some point, there is a loop
-# 3. Aggressive cows (Binary Search)
-# 4. Trapping rain Water(left and right)
-# 5. Graph coloring prob
-# 6. N-Queens prob
+# 1. x Finding Middle element in O(logn) using 2 pointers
+# 2. x Loop detection (last to any except head)
+        # a. if s=f at some point, there is a loop
+# 3.   Aggressive cows (Binary Search)
+# 4.   Trapping rain Water(left and right)
+# 5.   Graph coloring prob
+# 6.   N-Queens prob
 
 class LinkedList:
     def __init__(self) -> None:
@@ -60,6 +60,7 @@ class LinkedList:
                 self.insert_at_end(data=value)
 
     def insert_value_after(self, value_to_be_inserted: int, value: int) -> int:
+        '''Insert a value after a specified value.'''
         current = self.head
         node = Node(value_to_be_inserted)
         while current is not None:
@@ -96,7 +97,22 @@ class LinkedList:
             current = current.next
             if current.next is None:
                 temp.next = None
-
+    def loop_detection(self):
+        '''Detects if a loop is present in the Linked List.'''
+        current=self.head
+        H=current
+        T=current
+        while H!=T:
+            if H !=T:
+                H=(H.next).next
+                T=T.next
+            elif H==T:
+                return True
+            elif T.next==None:
+                return False
+        
+        
+        
     def delete_first(self) -> None:
         '''
         Delete the first element of the Linked List.
