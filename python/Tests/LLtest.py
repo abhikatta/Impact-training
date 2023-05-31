@@ -18,7 +18,9 @@ class Tests:
             8: 'Delete_value',
             9: 'Reverse_Linked_List',
             10: 'Search',
-            11: 'Traverse'
+            11: 'Traverse',
+            12: 'Middle Element'
+            
         }
         self.commands = [
             lambda:self.ll.insert_at_end(
@@ -36,7 +38,8 @@ class Tests:
                 value=input("Enter value to be deleted: ")),
             lambda:self.ll.reversal(),
             lambda:self.ll.search(value=input("Enter value to be searched: ")),
-            lambda:self.ll.traverse()
+            lambda:self.ll.traverse(),
+            lambda:self.ll.middle_element()
         ]
 
     def take_input(self):

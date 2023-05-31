@@ -6,6 +6,10 @@ class Node:
 # 1. Finding Middle element in O(logn) using 2 pointers
 # 2. Loop detection (last to any except head)
     # a. if s=f at some point, there is a loop
+# 3. Aggressive cows (Binary Search)
+# 4. Trapping rain Water(left and right)
+# 5. Graph coloring prob
+# 6. N-Queens prob
 
 class LinkedList:
     def __init__(self) -> None:
@@ -79,6 +83,8 @@ class LinkedList:
         while current is not None:
             print(current.data, end=', ')
             current = current.next
+        print()
+        return
 
     def delete_last(self) -> None:
         '''
@@ -131,6 +137,22 @@ class LinkedList:
                 prev.next = current.next
                 current = current.next
                 break
+
+    def middle_element(self):
+        current=self.head
+        H=current
+        T=current
+        while H is not None:
+            if H.next is None:
+                print(T.data)
+                return T
+            elif (H.next).next is None:
+                print(T.data)
+                return T
+            if H is not None and H.next is not None:
+                T=T.next
+                H=(H.next).next
+                
 
     def search(self, value: int) -> bool:
         '''

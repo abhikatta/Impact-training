@@ -8,4 +8,6 @@ class Graph:
     def add_node(self,s,d):
         node=Node(d)
         self.graph[s]=node
-        node.next=self.graph
+        node.next=self.graph[s]
+        
+        
