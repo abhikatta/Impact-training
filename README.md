@@ -6,3 +6,5 @@
 2. [x] Doubly Linked List.
 3. [x] Circular LinkedList.
 4. [ ] Binary Search Tree.
+5. [ ] Graph with [Adjacency matrix(List of lists), Adjacency List(Linked List)]
+6. [ ]

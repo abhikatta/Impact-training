@@ -5,7 +5,7 @@ class GraphLL:
         self.graph=[None]*self.no_of_vertices
         
     def add_edge(self,s,d):
-        ''''''
+        '''Adds edge between given nodes (source and destination).'''
         node=Node(d)
         node.next=self.graph[s]
         self.graph[s]=node
@@ -15,6 +15,7 @@ class GraphLL:
         return
     
     def traverse_graph(self):
+        '''Traverse the graph.'''
         for i in range(self.no_of_vertices):
             temp=self.graph[i]
             print(i,end='')
@@ -23,14 +24,19 @@ class GraphLL:
                 temp=temp.next
             print()
             
-    def DFS(self,start:int,visited:list)->None:
-        visited[start]=True
-        print(start,end=' ')
+    def DFS(self,start,visited):
+        '''Explore the graph in depth.'''
         current=self.graph[start]
+        print(start,end=' ') 
+        visited[start]=True
         while current:
             if not visited[current.data]:
                 self.DFS(start=current.data,visited=visited)
             current=current.next
+      
+    def cycle_detection(self):
+        pass
+    
 
 size=5
 graph=GraphLL(size)
