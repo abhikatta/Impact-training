@@ -71,9 +71,9 @@ class BST:
                 # that value with current node's value(not node, but VALUE).
                 # here  max value  of the 2 successors is being taken.
                 # again that successor may also have successsor(s), so the deletion function is being applied again on the successor.
-                successor = self.inorder_successor(root=root.prev)
+                successor = self.inorder_successor(root=root.next)
                 root.data = successor.data
-                self.deletion(root=root.prev, value=root.prev)
+                self.deletion(root=root.next, value=root.next)
 
         # 4. left max has a child
         return root
@@ -96,7 +96,7 @@ class BST:
             root = root.next
         print(root.data)
         return root
-    
+
     def find_parent(self, root: Node, leaf_value: int) -> Node:
         '''Finds the parent of the leaf. Returns None if not found.'''
         # since root node does not have a parent

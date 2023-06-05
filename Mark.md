@@ -57,3 +57,8 @@
    - d. Postorder Traversal
    - e. Height
    - f. Levelorder Traversal
+
+5. Graph:
+   - a. Insetion with matrix (adding edge)
+   - b. Insertion with Linked List (adding edge)
+   - c.

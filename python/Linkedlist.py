@@ -32,8 +32,11 @@ class LinkedList:
         '''
         Insert an element at the beginning of the Linked list
         '''
-        new_node = Node(data=data)
+        print("data: ")
+        print(data)
+        print()
         current = self.head
+        new_node = Node(data=data)
         self.head = new_node
         new_node.next = current
 
@@ -45,19 +48,25 @@ class LinkedList:
         count = 0
         new_node = Node(value)
         prev = None
+        print()
+        print(index)
+        print()
+        
         if index == 0:
             self.insert_at_beginning(data=value)
+            return
         while current is not None:
             if count != index:
-                count += 1
                 prev = current
                 current = current.next
+                count += 1
             elif count == index and current.next is not None:
                 prev.next = new_node
                 new_node.next = current
                 return
             elif count == index and current.next is None:
                 self.insert_at_end(data=value)
+                return
 
     def insert_value_after(self, value_to_be_inserted: int, value: int) -> int:
         '''Insert a value after a specified value.'''
@@ -208,3 +217,10 @@ class LinkedList:
 
         self.head = prev
         self.traverse()
+        
+        
+ll=LinkedList()
+ll.insert_at(value=1,index=0)
+ll.insert_at(value=2,index=1)
+ll.insert_at(value=3,index=2)
+ll.traverse()
